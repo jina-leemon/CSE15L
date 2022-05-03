@@ -1,4 +1,4 @@
-# [Lab Report 2: Setting Remote Environments](https://jina-leemon.github.io/CSE15L/Lab_report_2/Lab_report_2/Lab_report_2)
+# [Lab Report 2: Setting Remote Environments](https://jina-leemon.github.io/CSE15L/Lab_report_2/Lab_report_2/Lab_report_2.md)
 
 ### Code change 1:
 
