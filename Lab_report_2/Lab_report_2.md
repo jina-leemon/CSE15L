@@ -49,7 +49,7 @@ In order to resolve this we checked that there is a "!" in the beginning and bre
 
 **Code change** <br>
 The failure-inducing input is a link description [] with empty address ()
-For example, [website]()
+For example, \[website]()
 <br>
 
 [failure input: () empty](https://github.com/jina-leemon/markdown-parser/blob/main/new-file-4.md)
