@@ -28,8 +28,7 @@ We resolved this by adding a check when all the indices are -1 (not found)
 ![Code change diff 2](https://jina-leemon.github.io/CSE15L/Lab_report_2/Lab_report_2/code_fix_2_diff.png)
 
 **Code change** <br>
-This is the first (and second) code change diff.
-The link to the test file for the failure-inducing input that promted my group to make the change is here: <br>
+The failure-inducing input is a image file that is recognized as a link. The link to this file can be found here: <br>
 
 [failure input: there is no link](https://jina-leemon.github.io/markdown-parser/new-file-2.md)
 
@@ -39,8 +38,9 @@ The code returns images as link. The code should throw an error in this case.
 **Description**:<br>
 relationship between the bug, the symptom, and the failure-inducing input:<br>
 
-The failure-inducing input is a image file that is recognized as a link. The link to this file can be found here:
-
-[failure input: is an image](https://jina-leemon.github.io/markdown-parser/new-file-3.md)
+The bug is that there is no check in the code to see if the link-like text (with [] and ()) is in fact an image (has ! in the beginning). The following symptom is that even images are recognized as a link. In <br>
+In order to resolve this we checked that there is a "!" in the beginning and breaks if there is (meaning it is an image).
+<br>
+<br>
 
 ### Code change 3:
