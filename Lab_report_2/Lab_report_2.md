@@ -38,9 +38,30 @@ The code returns images as link. The code should throw an error in this case.
 **Description**:<br>
 relationship between the bug, the symptom, and the failure-inducing input:<br>
 
-The bug is that there is no check in the code to see if the link-like text (with [] and ()) is in fact an image (has ! in the beginning). The following symptom is that even images are recognized as a link. In <br>
+The failure-inducing input is a image markdown instead of a link. The bug is that there is no check in the code to see if the link-like text (with [] and ()) is in fact an image (has ! in the beginning). The following symptom is that even images are recognized as a link. In <br>
 In order to resolve this we checked that there is a "!" in the beginning and breaks if there is (meaning it is an image).
 <br>
 <br>
 
 ### Code change 3:
+
+![Code change diff 3](https://jina-leemon.github.io/CSE15L/Lab_report_2/code_fix_3_diff.png)
+
+**Code change** <br>
+The failure-inducing input is a link description [] with empty address ()
+For example, [website]()
+<br>
+
+[failure input: () empty](https://github.com/jina-leemon/markdown-parser/blob/main/new-file-4.md)
+
+**The symptom**: <br>
+There is no link in this case but the return is not empty.
+
+**Description**:<br>
+relationship between the bug, the symptom, and the failure-inducing input:<br>
+
+The input has a () and a [] but nothing inside the () where the link address is supposed to be.<br>
+Accordingly, the symptom is that there is a non-empty output and the bug is that the code cannot detect that the length between the openParan and closeParan is 0.<br>
+To fix this we added an if statement checking that the length between the paranthesis is not zero and returning a link if this is true.
+<br>
+<br>
