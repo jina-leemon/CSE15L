@@ -1,0 +1,9 @@
+javac Main.java 
+
+if [ $? != 00]
+then
+    echo "Exit"
+    exit 1
+fi
+
+echo "zero"
