@@ -66,15 +66,14 @@ And then there's more text
 
 expected output: 
 
-```
-["https://www.twitter.com", "https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule", "https://cse.ucsd.edu/"]
-```
+```["https://www.twitter.com", "https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule", "https://cse.ucsd.edu/"]```
 
 <br>
 <br>
+
 ### 2. Outputs of Each Implementation
 <br>
-<br>
+
 **My Implementation**
 <br>
 <br>
@@ -100,8 +99,24 @@ Instead of the expected output, the three tests output:
 >
 >]
 
+**Reviewed Implementation**
 <br>
 <br>
+![output for my implementation](lab-report-4-reviewed_output_1.png)
+
+![output for my implementation](lab-report-4-reviewed_output.png)
+
+Previous implements including the new 3 fail.
+Instead of the expected output, the three tests output:
+>[url.com, `google.com, google.com, ucsd.edu]
+
+>[a.com, a.com((, example.com]
+
+>[]
+
+<br>
+<br>
+
 ### 3. Changing The Code:
 <br>
 <br>
@@ -109,8 +124,24 @@ A small (<10 lines) code change that can make my program work:
 
 <br>
 
-**Code Snippet 1**
+**Code Snippet 1** <br>
+- **change:** The issue is that ` cancels out the markdown effect but simply getting the indices of the brackets and paranthesis does not ake this into account.
+- A solution is to add variables openQuote and closeQuote that keeps track of where the quotes are, and check that openQuote is not smaller than openBracket if it exists within that substring of the markdown. Then set the isLink boolean variable to false (since this should not be a list)
 
-Do you think there is a small (<10 lines) code change that will make your program work for snippet 2 and all related cases that nest parentheses, brackets, and escaped brackets? If yes, describe the code change. If not, describe why it would be a more involved change.
-Do you think there is a small (<10 lines) code change that will make your program work for snippet 3 and all related cases that have newlines in brackets and parentheses? If yes, describe the code change. If not, describe why it would be a more involved change
+![snipplet1](lab-report-4-s1.png)
 
+**Code Snippet 2** <br>
+- **change:** The problem is that the index of ")" is always the first one after the closeBracket index, when there may be more end paranthesis (for example, in snippet 2 a.com(())).
+- A solution is to iterate until the next index of ")" is not an ")". <br> This way, the index of close paranthesis would be the last consecutive paranthesis.
+
+![snipplet2](lab-report-4-s2.png)
+
+**Code Snippet 3** <br>
+- **change:** The issue is that the links include all the line breaks and everything between the paranthesis even if there's a link inside it.
+- A solution is to use .strip to get rid of line breaks and redundant spaces. In addition, adding a getLinks method within getLinks can catch any inner links.
+
+![snipplet3](lab-report-4-s3.png)
+
+Now all the tests pass! I probably didn't actually have to debug it but I went all out
+
+![passing_all_tests](lab-report-4-pass.png)
