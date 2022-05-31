@@ -2,4 +2,4 @@ Lab Report 1: [link](https://jina-leemon.github.io/CSE15L/Lab_report_1/Lab_repor
 
 Lab Report 2: [link](https://jina-leemon.github.io/CSE15L/Lab_report_2/Lab_report_2)
 
-Lab Report 4: [link](https://jina-leemon.github.io/CSE15L/Lab_report_3/Lab_report_3)
+Lab Report 4: [link](https://jina-leemon.github.io/CSE15L/Lab_report_4/Lab_report_4)
