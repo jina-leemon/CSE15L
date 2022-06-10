@@ -4,6 +4,8 @@
 
 left: class implementation, right: my implementation
 
+I found the differences in outputs through vimdiff.
+
 ![Difference](lab-report-5-vimdiff.png)
 
 The different results are in [this github repo](https://github.com/jina-leemon/markdown-parser)
